@@ -4,10 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npx tsx watch playground/index.ts"
+    "dev": "npx tsx watch playground/index.ts",
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "devDependencies": {
+    "fast-check": "^4.6.0",
     "tsx": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "vitest": "^4.1.4"
   }
 }
