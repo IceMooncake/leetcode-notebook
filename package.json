@@ -1,12 +1,16 @@
 {
-  "name": "my-leetcode-notebook",
+  "name": "leetcode-notebook",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "npx tsx watch playground/index.ts",
     "test": "vitest",
-    "test:run": "vitest run"
+    "test:run": "vitest run",
+    "test:q": "node scripts/run-question-test.mjs",
+    "test:q:run": "node scripts/run-question-test.mjs --run",
+    "clear:solution": "node scripts/clear-solution.mjs",
+    "clear:solution:apply": "node scripts/clear-solution.mjs --apply"
   },
   "devDependencies": {
     "fast-check": "^4.6.0",
