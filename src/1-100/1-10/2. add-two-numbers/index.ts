@@ -1,6 +1,6 @@
 /**
  * 2. 两数相加 (Add Two Numbers)
- * 难度：中等
+ * 难度：4/10
  * 链接：https://leetcode.cn/problems/add-two-numbers/
  *
  * 任务摘要：

@@ -1,6 +1,6 @@
 /**
  * 1. 两数之和 (Two Sum)
- * 难度：简单
+ * 难度：2/10
  * 链接：https://leetcode.cn/problems/two-sum/
  *
  * 任务摘要：
