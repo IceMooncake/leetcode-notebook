@@ -7,7 +7,7 @@ export interface ProblemMeta {
   slug: string
   title: string
   url: string
-  customDifficulty: number
+  difficulty: number
   tags: Tag[]
   notes: string
 }

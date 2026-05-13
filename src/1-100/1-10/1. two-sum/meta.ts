@@ -8,7 +8,7 @@ const meta: ProblemMeta = {
   slug: 'two-sum',
   title: '两数之和',
   url: 'https://leetcode.cn/problems/two-sum/',
-  customDifficulty: 2,
+  difficulty: 2,
   tags: [TAGS.ARRAY, TAGS.HASH_MAP],
   notes: '入门题，重点是一次遍历与查补数。',
 }
