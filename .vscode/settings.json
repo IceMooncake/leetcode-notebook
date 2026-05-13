@@ -1,0 +1,5 @@
+{
+  "files.readonlyInclude": {
+    "**/index.empty.ts": true
+  }
+}
