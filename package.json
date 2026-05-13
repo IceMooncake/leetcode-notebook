@@ -10,7 +10,8 @@
     "test:q": "node scripts/run-question-test.mjs",
     "test:q:run": "node scripts/run-question-test.mjs --run",
     "clear:solution": "node scripts/clear-solution.mjs",
-    "clear:solution:apply": "node scripts/clear-solution.mjs --apply"
+    "clear:solution:apply": "node scripts/clear-solution.mjs --apply",
+    "meta": "node scripts/get-problem-meta.mjs"
   },
   "devDependencies": {
     "fast-check": "^4.6.0",
