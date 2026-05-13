@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import fc from 'fast-check'
 import { addTwoNumbers, ListNode } from './index'
+import { failWithContext } from '../../../test-utils/failWithContext'
 
 function fromArray(values: number[]): ListNode | null {
   const dummy = new ListNode(0)
@@ -96,9 +97,23 @@ describe('2. 两数相加', () => {
         const aNum = reverseDigitsToBigInt(a)
         const bNum = reverseDigitsToBigInt(b)
         const actualNum = reverseDigitsToBigInt(actual)
-        expect(actualNum).toBe(aNum + bNum)
+        const sameAsReference = JSON.stringify(actual) === JSON.stringify(expected)
+        const sumMatches = actualNum === aNum + bNum
+
+        if (!sameAsReference || !sumMatches) {
+          failWithContext('两数相加属性测试失败', {
+            inputL1: a,
+            inputL2: b,
+            expected,
+            actual,
+            expectedSum: aNum + bNum,
+            actualSum: actualNum,
+            sameAsReference,
+            sumMatches,
+          })
+        }
       }),
-      { numRuns: 200 },
+      { numRuns: 200, verbose: true },
     )
   })
 })

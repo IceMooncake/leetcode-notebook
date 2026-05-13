@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import fc from 'fast-check'
 import { twoSum } from './index'
+import { failWithContext } from '../../../test-utils/failWithContext'
 
 /**
  * 标准题解：哈希表法 O(n)
@@ -73,15 +74,23 @@ describe('1. 两数之和', () => {
       fc.property(validInput, ({ nums, target }) => {
         const result = sorted(twoSum(nums, target))
         const expected = sorted(referenceTwoSum(nums, target))
+        const hasTwoIndexes = result.length === 2
+        const sumMatches = hasTwoIndexes ? nums[result[0]] + nums[result[1]] === target : false
+        const sameAsReference = JSON.stringify(result) === JSON.stringify(expected)
 
-        // 返回的下标对应元素之和应等于 target
-        expect(result).toHaveLength(2)
-        expect(nums[result[0]] + nums[result[1]]).toBe(target)
-
-        // 下标应与标准题解一致（排序后比较）
-        expect(result).toEqual(expected)
+        if (!hasTwoIndexes || !sumMatches || !sameAsReference) {
+          failWithContext('两数之和属性测试失败', {
+            nums,
+            target,
+            expected,
+            actual: result,
+            hasTwoIndexes,
+            sumMatches,
+            sameAsReference,
+          })
+        }
       }),
-      { numRuns: 200 },
+      { numRuns: 200, verbose: true },
     )
   })
 })
